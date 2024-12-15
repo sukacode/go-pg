@@ -63,19 +63,19 @@ func CreateEmployee() {
 	var employee = Employee{}
 
 	sqlStatement := `
-	INSERT INTO catalog (id, nama_barang, jumlah, type_barang, harga)
-	VALUES ($1, $2, $3, $4, $5)
+	INSERT INTO employees (full_name, email, age, division)
+	VALUES ($1, $2, $3, $4)
 	Returning *
 	`
 
-	err = db.QueryRow(sqlStatement, 9, "Kaos Anaq", 300, "Kids", 135000).
+	err = db.QueryRow(sqlStatement, "Dump1", "dump1@gmail.com", 27, "ITServices").
 		Scan(&employee.ID, &employee.Full_name, &employee.Email, &employee.Age, &employee.Division)
 
 	if err != nil {
 		panic(err)
 	}
 
-	fmt.Printf("new Catalog Data : %+v\n", employee)
+	fmt.Printf("New Employee Data : %+v\n", employee)
 }
 
 func GetCatalogue() {
