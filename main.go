@@ -51,12 +51,12 @@ func main() {
 
 }
 
-type Catalogue struct {
-	id          int
-	nama_barang string
-	jumlah      int
-	type_barang string
-	harga       int
+type Employee struct {
+	ID        int
+	Full_name string
+	Email     int
+	Age       string
+	Division  int
 }
 
 func CreateCatalogue() {
