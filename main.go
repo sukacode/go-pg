@@ -54,9 +54,9 @@ func main() {
 type Employee struct {
 	ID        int
 	Full_name string
-	Email     int
-	Age       string
-	Division  int
+	Email     string
+	Age       int
+	Division  string
 }
 
 func CreateEmployee() {
