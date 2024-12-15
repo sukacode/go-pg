@@ -59,8 +59,8 @@ type Employee struct {
 	Division  int
 }
 
-func CreateCatalogue() {
-	var catalog = Catalogue{}
+func CreateEmployee() {
+	var employee = Employee{}
 
 	sqlStatement := `
 	INSERT INTO catalog (id, nama_barang, jumlah, type_barang, harga)
@@ -69,13 +69,13 @@ func CreateCatalogue() {
 	`
 
 	err = db.QueryRow(sqlStatement, 9, "Kaos Anaq", 300, "Kids", 135000).
-		Scan(&catalog.id, &catalog.nama_barang, &catalog.jumlah, &catalog.type_barang, &catalog.harga)
+		Scan(&employee.ID, &employee.Full_name, &employee.Email, &employee.Age, &employee.Division)
 
 	if err != nil {
 		panic(err)
 	}
 
-	fmt.Printf("new Catalog Data : %+v\n", catalog)
+	fmt.Printf("new Catalog Data : %+v\n", employee)
 }
 
 func GetCatalogue() {
