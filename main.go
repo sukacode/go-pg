@@ -45,7 +45,7 @@ func main() {
 
 	fmt.Println("Successfully connected to Database "+dbname, "PORT =", port)
 
-	// CreateCatalogue()
+	CreateEmployee()
 	// GetCatalogue()
 	// UpdateCatalogue()
 
@@ -78,10 +78,10 @@ func CreateEmployee() {
 	fmt.Printf("New Employee Data : %+v\n", employee)
 }
 
-func GetCatalogue() {
-	var results = []Catalogue{}
+func GetEmployee() {
+	var results = []Employee{}
 
-	sqlStatament := `SELECT * FROM catalog`
+	sqlStatament := `SELECT * FROM employees`
 
 	rows, err := db.Query(sqlStatament)
 
@@ -91,18 +91,18 @@ func GetCatalogue() {
 	defer rows.Close()
 
 	for rows.Next() {
-		var catalogue = Catalogue{}
+		var employee = Employee{}
 
-		err = rows.Scan(&catalogue.id, &catalogue.nama_barang, &catalogue.jumlah, &catalogue.type_barang, &catalogue.harga)
+		err = rows.Scan(&employee.ID, &employee.Full_name, &employee.Email, &employee.Age, &employee.Division)
 
 		if err != nil {
 			panic(err)
 		}
 
-		results = append(results, catalogue)
+		results = append(results, employee)
 	}
 
-	fmt.Println("Catalogue data ; ", results)
+	fmt.Println("Employee data ; ", results)
 }
 
 func UpdateCatalogue() {
