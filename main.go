@@ -45,8 +45,8 @@ func main() {
 
 	fmt.Println("Successfully connected to Database "+dbname, "PORT =", port)
 
-	CreateEmployee()
-	// GetCatalogue()
+	// CreateEmployee()
+	GetEmployee()
 	// UpdateCatalogue()
 
 }
@@ -68,7 +68,7 @@ func CreateEmployee() {
 	Returning *
 	`
 
-	err = db.QueryRow(sqlStatement, "Dump1", "dump1@gmail.com", 27, "ITServices").
+	err = db.QueryRow(sqlStatement, "Dump2", "dump2@gmail.com", 25, "ITSupport").
 		Scan(&employee.ID, &employee.Full_name, &employee.Email, &employee.Age, &employee.Division)
 
 	if err != nil {
